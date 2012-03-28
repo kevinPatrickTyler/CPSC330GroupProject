@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package cpsc330groupproject;
+package cpsc330groupproject.CPSC330GroupProject;
 import java.sql.*;
 /**
  *
@@ -19,7 +19,7 @@ public class CPSC330GroupProject {
     Statement myStmt;
     try{
       Class.forName("com.mysql.jdbc.Driver").newInstance();
-      // Connect to an instance of mysql with the follow details:
+      // Connect to an instance of mysql with the follow details
 
       myCon = DriverManager.getConnection(
               "jdbc:mysql://localhost/carBook",
@@ -33,8 +33,7 @@ public class CPSC330GroupProject {
       
       //insert into database
       Statement insertStatement = myCon.createStatement();
-      insertStatement.executeUpdate("INSERT INTO cars" + 
-              "VALUES('123456789AII5699W','1994','Toyota', 'Camry', '19000', '1000', 'Blue', 'Automatic')");
+      insertStatement.executeUpdate("INSERT INTO `carOwnership`(`id`, `vin`) VALUES (1, '15787844787786475')");
       
       
       myCon.close();
