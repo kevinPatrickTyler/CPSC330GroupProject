@@ -15,42 +15,40 @@ public class Student {
        firstName = fName;
        courseCatalog = new LinkedList();
    }
-   public void addClass(int CRN){
+   public void addClass(Course course){
        ListIterator iterator = courseCatalog.listIterator();
        boolean alreadyEnrolled = false;
        while(iterator.hasNext()){
-           if(iterator.equals(CRN)){
+           if(iterator.next().equals(course)){
                alreadyEnrolled = true;
            }
        }
        if(alreadyEnrolled == false){
-        courseCatalog.add(CRN);
+        courseCatalog.add(course);
        }
        else{
            System.out.println("Student already enrolled in course.");
        }
    }
-   public void dropClass(int CRN){
+   public void dropClass(Course course){
        ListIterator iterator = courseCatalog.listIterator();
        boolean alreadyEnrolled = false;
        while(iterator.hasNext()){
-           if(iterator.equals(CRN)){
+           if(iterator.next().equals(course)){
                alreadyEnrolled = true;
            }
        }
        if(alreadyEnrolled == true){
-        courseCatalog.remove(CRN);
+        courseCatalog.remove(course);
        }
        else{
            System.out.println("Student is not enrolled in course.");
        }
    }
    public void printSchedule(){
-       //this is unfinished; needs to interface with course object and
-       //interface with SQL
        ListIterator iterator = courseCatalog.listIterator();
        while(iterator.hasNext()){
-           System.out.println("course"); //this line will need to change
+           System.out.println(iterator.next()); //this line will need to change
        }
    }
    int bannerId;

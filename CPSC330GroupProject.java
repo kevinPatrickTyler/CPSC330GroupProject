@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package cpsc330groupproject.CPSC330GroupProject;
 import java.sql.*;
 /**
@@ -14,8 +11,10 @@ public class CPSC330GroupProject {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-         Connection myCon;
+        Course testCourse = new Course(11941);
+        System.out.println(testCourse.toString());
+        /*
+    Connection myCon;
     Statement myStmt;
     try{
       Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -41,5 +40,7 @@ public class CPSC330GroupProject {
     catch (Exception sqlEx){
       System.err.println(sqlEx);
     }
+    }
+    */
     }
 }
