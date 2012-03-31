@@ -12,7 +12,9 @@ public class CPSC330GroupProject {
      */
     public static void main(String[] args) {
         Course testCourse = new Course(11941);
-        System.out.println(testCourse.toString());
+        Student chrisLutz = new Student("Lutz", "Chris");
+        chrisLutz.addClass(testCourse);
+        chrisLutz.printSchedule();
         /*
     Connection myCon;
     Statement myStmt;
