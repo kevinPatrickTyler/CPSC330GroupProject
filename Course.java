@@ -8,6 +8,7 @@ import java.sql.*;
 public class Course {
     
     public Course(int courseNum){
+        //add incrememnt currStudEnrol
         Connection myCon;
         Statement myStmt;
         try{
@@ -48,7 +49,6 @@ public class Course {
             else{
                 prereqs = 'N';
             }
-            
             atc = result.getString("atc");
             credits = Integer.parseInt(result.getString("credits"));
             time = result.getString("time");
@@ -86,5 +86,4 @@ public class Course {
     private String room;
     private String instructor;
     private String requirements;
-    
 }
