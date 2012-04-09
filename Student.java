@@ -10,10 +10,9 @@ import java.util.ListIterator;
  * @author kevintyler
  */
 public class Student {
-   public Student(String lName, String fName, String emailAddy){
+   public Student(String emailAddy, String pw){
        email = emailAddy;
-       lastName = lName;
-       firstName = fName;
+       password = pw;
        courseCatalog = new LinkedList();
    }
    public void addClass(Course course){
@@ -54,6 +53,12 @@ public class Student {
            System.out.println("Student is not enrolled in course.");
        }
    }
+   public void setLastName(String lastname){
+       lastName = lastname;
+   }
+   public void setFirstName(String firstname){
+       firstName = firstname;
+   }
    public void printSchedule(){
        ListIterator iterator = courseCatalog.listIterator();
        while(iterator.hasNext()){
@@ -61,9 +66,6 @@ public class Student {
        }
    }
    int bannerId;
-   String lastName;
-   String firstName;
-   String academicYear;
-   String email;
+   String lastName, firstName, academicYear, email, password;
    LinkedList courseCatalog;
 }

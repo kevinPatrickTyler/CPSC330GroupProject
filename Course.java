@@ -63,6 +63,8 @@ public class Course {
         catch (Exception sqlEx){
         System.err.println(sqlEx);
         }
+        numCurrentlyEnrolled = 0;
+        capacity = 18;
     }
     public String toString(){
         return this.CRN + " " + this.course + " " + this.section + " " 
@@ -86,4 +88,6 @@ public class Course {
     private String room;
     private String instructor;
     private String requirements;
+    public int capacity;
+    public int numCurrentlyEnrolled;
 }
