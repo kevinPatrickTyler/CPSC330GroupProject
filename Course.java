@@ -6,7 +6,7 @@ import java.sql.*;
  * @author kevintyler
  */
 public class Course {
-    
+    //default constructor
     public Course(int courseNum){
         //add incrememnt currStudEnrol
         Connection myCon;
@@ -14,13 +14,19 @@ public class Course {
         try{
         Class.forName("com.mysql.jdbc.Driver").newInstance();
         // Connect to an instance of mysql with the follow details
+        //varables: SQL database location, password
         myCon = DriverManager.getConnection(
                 "jdbc:mysql://localhost/umw",
                 "root","");
+        //create statement
         myStmt = myCon.createStatement();
+        //generate query and store in result variable
         ResultSet result = myStmt.executeQuery(
             "SELECT * FROM umw2010 WHERE crn = " + courseNum);
+        //iterate through result sets
+        //since we're searching by CRN, there should only be one
         while (result.next()){
+            //set CRN, course, section etc variables from database
             CRN = Integer.parseInt(result.getString("crn"));            
             course = result.getString("course");            
             section = Integer.parseInt(result.getString("section"));
@@ -58,15 +64,18 @@ public class Course {
             instructor = result.getString("instructor");
             requirements = result.getString("requirements");
         }
+        //close connection
         myCon.close();
         }
         catch (Exception sqlEx){
         System.err.println(sqlEx);
         }
+        //instantiate variables for capacity and number of students enrolled
         numCurrentlyEnrolled = 0;
         capacity = 18;
     }
     public String toString(){
+        //return String of course information
         return this.CRN + " " + this.course + " " + this.section + " " 
                 + this.title + " " + this.poi + " " + this.co + " "
                 + this.prereqs + " " + this.atc + " " + this.credits + " "

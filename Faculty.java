@@ -11,6 +11,7 @@ import java.util.ListIterator;
  * @author kevintyler
  */
 public class Faculty {
+    //default constructor
     public Faculty(String lastname, String firstname){
         lastName = lastname;
         firstName = firstname;
@@ -28,8 +29,12 @@ public class Faculty {
     }
     
     
+    //Instantiates linked list iterator to traverse through linked list of 
+    //  courses a professor is already teaching.  If the course is not in the
+    //  list, alreadyInstructor returns false.  Otherwise, course is dropped
+    //  from professor's course catalog.
     public boolean dropCourse(Course course){
-        ListIterator iterator = currentlyTeaching.listIterator();
+       ListIterator iterator = currentlyTeaching.listIterator();
        boolean alreadyInstructor = false;
        while(iterator.hasNext()){
            if(iterator.next().equals(course)){
