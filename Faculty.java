@@ -11,6 +11,9 @@ import java.util.ListIterator;
  * @author kevintyler
  */
 public class Faculty {
+    //default constructor with no arguements
+    public Faculty(){
+    }
     //default constructor
     public Faculty(String lastname, String firstname){
         lastName = lastname;

@@ -10,11 +10,13 @@ import java.util.ListIterator;
  * @author kevintyler
  */
 public class Student extends courseAndStudentCatalog{
+   public Student(){
+       
+   }
    public Student(String emailAddy, String pw){
        email = emailAddy;
        password = pw;
        courseCatalog = new LinkedList();
-       studentList.add(this);
    }
    public void addClass(Course course){
        if(course.numCurrentlyEnrolled >= course.capacity){
@@ -67,6 +69,6 @@ public class Student extends courseAndStudentCatalog{
        }
    }
    int bannerId;
-   String lastName, firstName, academicYear, email, password;
+   public String lastName, firstName, academicYear, email, password;
    LinkedList courseCatalog;
 }

@@ -17,6 +17,9 @@ import java.util.ListIterator;
  */
 public class courseAndStudentCatalog {
     public courseAndStudentCatalog(){
+        studentNameList = new LinkedList();
+        instantiatedCourses = new LinkedList();
+        studentList = new LinkedList <Student>();
     }
     public boolean courseAlreadyInstantiated(int CRN){
        ListIterator iterator = instantiatedCourses.listIterator();
@@ -56,16 +59,54 @@ public class courseAndStudentCatalog {
        }
        return courseExists;
     }
-    public boolean studentExists(Student student){
-        ListIterator iterator = studentList.listIterator();
+    public boolean studentLogin(String email, String password){
+        if(studentList.size() == 0){
+            return false;
+        }
+        
+        Student student = new Student();
+        ListIterator<Student> iterator = studentList.listIterator();
+        boolean accountExists = false;
+        while(iterator.hasNext()){
+            System.out.println(iterator.next().email);
+            student = iterator.next();
+            if(student.email.equals(email) && student.password.equals(password)){
+                String m = iterator.next().email;
+                return true;
+            }
+//            student = iterator.next();
+//            System.out.print("Student info" + student.email + " " + student.password);
+//            if(student.email.equals(email) && student.password.equals(password)){
+//                String m = iterator.next().email;
+//                return true;
+//            }
+        }
+        return accountExists;
+    }
+    public boolean studentExists(String studentEmail){
+       if(studentNameList.size() == 0){
+           return false;
+       }
+       ListIterator iterator = studentNameList.listIterator();
        boolean alreadyInstantiated = false;
        while(iterator.hasNext()){
-           if(iterator.next().equals(student)){
+           if(iterator.next().equals(studentEmail)){
                alreadyInstantiated = true;
            }
        }
         return alreadyInstantiated;
     }
+    public Student getStudent(String email){
+        Student student = new Student();
+        ListIterator<Student> iterator = studentList.listIterator();
+        while(iterator.hasNext()){
+            if(student.email == email){
+                student = iterator.next();
+            }
+        }
+        return student;
+    }
     LinkedList instantiatedCourses; //linked list of course CRN ints
-    LinkedList studentList; //linked list of student objects
+    LinkedList studentNameList; //linked list of email Strings
+    LinkedList <Student>studentList; //linked list of student objects
 }

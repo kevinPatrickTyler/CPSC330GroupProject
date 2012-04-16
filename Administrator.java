@@ -13,11 +13,11 @@ public class Administrator extends courseAndStudentCatalog{
         
     }
     public boolean deleteStudent(Student student){
-        if(studentExists(student) == false){
+        if(studentExists(student.email) == false){
             return false;
         }
         else{
-            studentList.remove(student);
+            studentNameList.remove(student);
         }
         return true;
     }
