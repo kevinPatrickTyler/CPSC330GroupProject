@@ -1,11 +1,12 @@
 package cpsc330groupproject.CPSC330GroupProject;
 import java.sql.*;
+import java.util.ListIterator;
 
 /**
  *
  * @author kevintyler
  */
-public class Course {
+public class Course extends courseAndStudentCatalog{
     //default constructor
     public Course(int courseNum){
         //add incrememnt currStudEnrol
@@ -73,6 +74,8 @@ public class Course {
         //instantiate variables for capacity and number of students enrolled
         numCurrentlyEnrolled = 0;
         capacity = 18;
+        //add to list of instantiated courses
+        instantiatedCourses.add(CRN);
     }
     public String toString(){
         //return String of course information
@@ -82,6 +85,7 @@ public class Course {
                 + this.time + " " + this.days + " " + this.building + " "
                 + this.room + " " + this.instructor + this.requirements;
     }
+    
     private int CRN;
     private String course;
     private int section;
