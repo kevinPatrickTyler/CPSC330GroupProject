@@ -5,13 +5,17 @@ import java.util.ListIterator;
 /**
  *
  * @author kevintyler
+ * Course.java
+ * Course object to hold course data
  */
 public class Course extends courseAndStudentCatalog{
     //default constructor
     public Course(int courseNum){
-        //add incrememnt currStudEnrol
+        //instantiates course object from extracted SQL record
+        //  corresponds with CRN
         Connection myCon;
         Statement myStmt;
+        //open connection and instantiate statement
         try{
         Class.forName("com.mysql.jdbc.Driver").newInstance();
         // Connect to an instance of mysql with the follow details
@@ -76,7 +80,8 @@ public class Course extends courseAndStudentCatalog{
         capacity = 18;
         //add to list of instantiated courses
         instantiatedCourses.add(CRN);
-    }
+        }
+    
     public String toString(){
         //return String of course information
         return this.CRN + " " + this.course + " " + this.section + " " 
